@@ -12,7 +12,7 @@ type PageProps = {
   };
 };
 
-export default function EventoDetailPage({ params }: PageProps) {
+export default function EventoDetailPage() {
    const searchParams = useSearchParams();
    const id = searchParams.get('id');
  
