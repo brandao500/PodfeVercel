@@ -6,11 +6,6 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 import { Facebook, Instagram, MessageCircle } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import { notFound } from 'next/navigation';
-type PageProps = {
-  params: {
-    id: string;
-  };
-};
 
 export default function EventoDetailPage() {
    const searchParams = useSearchParams();
