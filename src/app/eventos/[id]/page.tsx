@@ -134,8 +134,4 @@ export default function EventoDetailPage({ params }: PageProps) {
     </div>
   );
 } 
-export async function generateStaticParams() {
-  return recentNews.map((item) => ({
-    id: item.id.toString(),
-  }));
-}
+
