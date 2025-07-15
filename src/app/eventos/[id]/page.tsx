@@ -135,9 +135,5 @@ export default function EventoDetailPage() {
   );
 } 
 
-export async function generateStaticParams() {
-  return recentNews.map((item) => ({
-    id: item.id.toString(),
-  }));
-}
+
 
