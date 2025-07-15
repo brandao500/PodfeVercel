@@ -98,7 +98,7 @@ export default function NoticiasePublicidade() {
           <div
             key={item.id}
             className="flex flex-col bg-white shadow overflow-hidden cursor-pointer"
-            onClick={() => router.push(`/eventos/${item.id}`)}
+            onClick={() => router.push(`/eventos?id=${item.id}`)}
           >
             {item.image ? (
               <img
