@@ -4,7 +4,8 @@ import { recentNews } from '@/mock/noticiasPublicidadeData';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from '@/components/ui/dialog';
 import { Facebook, Instagram, MessageCircle } from 'lucide-react';
-import type { Metadata } from 'next';
+import { useSearchParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
 type PageProps = {
   params: {
     id: string;
@@ -12,9 +13,13 @@ type PageProps = {
 };
 
 export default function EventoDetailPage({ params }: PageProps) {
-  const { id } = params;
-  const evento = recentNews.find(e => String(e.id) === id);
-  if (!evento) return <div className="text-center py-20">Evento não encontrado.</div>;
+   const searchParams = useSearchParams();
+   const id = searchParams.get('id');
+ 
+  if (!id) return <div className="text-center py-20">ID do evento não informado.</div>;
+   const evento = recentNews.find(e => String(e.id) === id);
+  if (!evento) return notFound();
+  
   const related = recentNews.filter(e => evento.relatedPosts.includes(e.id) && e.id !== evento.id);
 
   // Social share URLs
