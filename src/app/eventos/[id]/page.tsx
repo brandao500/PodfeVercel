@@ -11,7 +11,7 @@ type PageProps = {
   };
 };
 
-export default function EventoDetailPage({ params }: PageProps) {
+export default function EventoDetailPage( { params }: { params: { id: string } })  Promise<Metadata> {
   const { id } = params;
   const evento = recentNews.find(e => String(e.id) === id);
   if (!evento) return <div className="text-center py-20">Evento não encontrado.</div>;
