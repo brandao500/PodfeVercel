@@ -6,7 +6,13 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from '@/components/ui/dialog';
 import { Facebook, Instagram, MessageCircle } from 'lucide-react';
 
-export default function EventoDetailPage({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default function EventoDetailPage({ params }: PageProps) {
   const evento = recentNews.find(e => String(e.id) === params.id);
   if (!evento) return <div className="text-center py-20">Evento não encontrado.</div>;
   const related = recentNews.filter(e => evento.relatedPosts.includes(e.id) && e.id !== evento.id);
