@@ -12,7 +12,7 @@ type PageProps = {
 };
 
 export default function EventoDetailPage({ params }: PageProps) {
-  const { id } = params.id;
+  const { id } = params;
   const evento = recentNews.find(e => String(e.id) === id);
   if (!evento) return <div className="text-center py-20">Evento não encontrado.</div>;
   const related = recentNews.filter(e => evento.relatedPosts.includes(e.id) && e.id !== evento.id);
@@ -134,4 +134,10 @@ export default function EventoDetailPage({ params }: PageProps) {
     </div>
   );
 } 
+
+export async function generateStaticParams() {
+  return recentNews.map((item) => ({
+    id: item.id.toString(),
+  }));
+}
 
