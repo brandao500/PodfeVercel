@@ -4,7 +4,7 @@ import { recentNews } from '@/mock/noticiasPublicidadeData';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from '@/components/ui/dialog';
 import { Facebook, Instagram, MessageCircle } from 'lucide-react';
-
+import type { Metadata } from 'next';
 type PageProps = {
   params: {
     id: string;
